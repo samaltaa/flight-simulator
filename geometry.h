@@ -65,4 +65,13 @@ public:
     Vector projectionOnto(Vector v) {return this->dot(unit(v)) * unit(v);}
     Vector reflectionAbout(Vector v) {return 2 * projectionOnto(v) - *this;}
 };
+
+// a class for 3-D Points
+//
+// p.x, p.y, p.z    Components (coordinates) of point p
+//   p + v, p += v              Add a point to a vector
+//   p - q                      The vector from q to p
+//   p.distanceTo(q)            The distance between p and q
+//   p.distanceTo(P)            The distance between p and the plane P
+
 #endif
