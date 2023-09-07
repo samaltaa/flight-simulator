@@ -77,6 +77,11 @@ public:
 class Point {
 public:
     double x, y, z:
-    point(double x=0, double y = 0, double z = 0): x(x), y(y), z(z) {}
-}
+    Point(double x=0, double y = 0, double z = 0): x(x), y(y), z(z) {}
+    Point operator +(Vector v) {return Point(x + v.i, y + v.j, z + v.k);}
+    Point& operator +=(Vector v) {x += v.i; y += v.j; x += v.k; return *this;}
+    Vector operator -(Point p) {return Vector(x - p.x, y - p.y, z - p.z);}
+    double distanceTo(Point p) {return (p - *this).magnitude();}
+    double distanceTo(Plane);
+};
 #endif
