@@ -38,8 +38,20 @@ inline bool equal(double x, double y, double epsilon = 0.000001){
 //   u.projectionOnto(v)        The projection of u onto v
 //   u.reflectionAbout(v)       The mirror image of u over v
 
+class Vector {
+public:
+    double i, j, k;
+    Vector(double i = 0, double j = 0, double k = 0): i(i), j(j), k(k) {}
+    Vector(Point p);
+    Vector operator +(Vector v) {return Vector(i + v.i, j + v.j, k + v.k);}
+    Vector& operator +=(Vector v) {i += v.i; j += v.j; k += v.k; return *this;}
+    Vector operator -(Vector v) {return Vector(i - v.i, j - v.j, k - v.k);}
+    Vector& operator -=(Vector v) {i -= v.i; j -=v.j; k -= v.k; return *this;}
+    Vector operator -() {return Vector(-i, -j, -k);}
+    double dot(Vector v) {return i * v.i + j * v.j + k * v.k;}
+    Vector cross(Vector);
 
+    
 
-
-
+}
 #endif
