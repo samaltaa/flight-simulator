@@ -84,4 +84,17 @@ public:
     double distanceTo(Point p) {return (p - *this).magnitude();}
     double distanceTo(Plane);
 };
+
+// A class for 3-D planes.
+//
+//   P.a, P.b, P.c, P.d         The components of plane P (P is the set of
+//                              all points (x, y, z) for which P.a * x +
+//                              P.b * y + P.c * z + P.d = 0)
+//   Plane(a, b, c d)           Construct from components
+//   Plane(p1, p2, p3)          Construct by giving three points on the plane
+//                              (may fail if the points are collinear): the
+//                              plane's normal is obtained by a right hand
+//                              rule: curl your right hand ccw around p1 to
+//                              p2 to p3 then your thumb orients the normal
+//   P.normal()                 The vector a, P.b, P.c>
 #endif
