@@ -74,4 +74,9 @@ public:
 //   p.distanceTo(q)            The distance between p and q
 //   p.distanceTo(P)            The distance between p and the plane P
 
+class Point {
+public:
+    double x, y, z:
+    point(double x=0, double y = 0, double z = 0): x(x), y(y), z(z) {}
+}
 #endif
