@@ -51,7 +51,18 @@ public:
     double dot(Vector v) {return i * v.i + j * v.j + k * v.k;}
     Vector cross(Vector);
 
-    
-
-}
+    Vector operator *(double c) {return Vector(i * c, j * c, k * c);}
+    friend Vector operator *(double c, vector v) { return v * c;}
+    Vector& operator *=(Vector v) {i *= v.i; j *= v.j; k *= v.k; return *this;}
+    Vector operator /(double c) {return vector (i / c, j / c, k / c);}
+    Vector& operator /=(double c) {i /= c; j /= c; k /= c; return *this;}
+    double magnitude() {return sqrt(this->dot(*this));}
+    friend Vector unit(Vector v) {return v / v.magnitude();}
+    friend void normalize(Vector& v) {v /= v.magnitude();}
+    friend double cosine(Vector u, Vector v) {return unit(u).dot(unit(v));}
+    bool isPerpendicularTo(Vector v) {return equal(this->dot(v), 0);}
+    bool isParallelTo(Vector v) {return equal(cosine(*this, v), 1.0);}
+    Vector projectionOnto(Vector v) {return this->dot(unit(v)) * unit(v);}
+    Vector reflectionAbout(Vector v) {return 2 * projectionOnto(v) - *this;}
+};
 #endif
