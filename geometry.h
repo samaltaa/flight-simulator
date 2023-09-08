@@ -97,4 +97,12 @@ public:
 //                              rule: curl your right hand ccw around p1 to
 //                              p2 to p3 then your thumb orients the normal
 //   P.normal()                 The vector a, P.b, P.c>
+
+class Plane {
+public:
+    double a, b, c, d;
+    Plane(double a = 0, double b = 0, double c = 1, double d = 0);
+    Plane(Point p1, Point p2, Point p3);
+    Vector normal() {return Vector(a, b, c);}
+};
 #endif
