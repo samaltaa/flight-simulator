@@ -105,4 +105,11 @@ public:
     Plane(Point p1, Point p2, Point p3);
     Vector normal() {return Vector(a, b, c);}
 };
+
+// A class for 3-D rays.
+//
+//   r.origin, r.direction      The components of the ray r
+//   Ray(origin, direction)     Construct from components
+//   r(u)                       The point on r at distance u * |r.direction|
+//                              from r.origin.
 #endif
