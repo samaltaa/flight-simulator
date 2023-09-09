@@ -27,3 +27,7 @@
 // yaw(theta)       rotate forward and right theta radians around up.
 // getSpeed()       return the current speed.
 // setSpeed(s)      set the current speed to s.
+
+#ifdef AERIALVEHICLE_H_
+#define AERIALVEHICLE_H_
+#include "geometry.h"
