@@ -112,4 +112,13 @@ public:
 //   Ray(origin, direction)     Construct from components
 //   r(u)                       The point on r at distance u * |r.direction|
 //                              from r.origin.
+
+class Ray {
+public:
+    Point origin;
+    Vector direction;
+    Ray(Point origin, Vector direction): origin(origin), direction(direction) {}
+    Point operator()(double u) {return origin + u * direction;}
+};
+
 #endif
