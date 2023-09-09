@@ -121,4 +121,29 @@ public:
     Point operator()(double u) {return origin + u * direction;}
 };
 
+// bodies of inlined operations
+
+inline Vector::Vector(Point p): i(p.x), j(p.y), k(p.z) {
+}
+inline Vector Vector::cross(Vector v) {
+  return Vector(j * v.k - k * v.j, k * v.i - i * v.k, i * v.j - j * v.i);
+}
+
+inline Plane::Plane(double a, double b, double c, double d):
+  a(a), b(b), c(c), d(d)
+{
+}
+
+inline double Point::distanceTo(Plane P) {
+  return fabs(P.a * x + P.b * y + P.c * z + P.d) / P.normal().magnitude();
+}
+
+inline Plane::Plane(Point p1, Point p2, Point p3) {
+  Vector n = (p2 - p1).cross(p3 - p1);
+  a = n.i;
+  b = n.j;
+  c = n.k;
+  d = -(Vector(p1).dot(n));
+}
+
 #endif
