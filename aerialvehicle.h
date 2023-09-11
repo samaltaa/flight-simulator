@@ -49,4 +49,13 @@ public:
     double getSpeed() {return speed;}
     void setSpeed(double newSpeed) {speed = newSpeed;}
 };
+
+inline Vehicle::Vehicle(Point initialPostion):
+    position(initialPosition),
+    forward(0, 0, -1),
+    up(0, 1, 0),
+    right(1, 0, 0),
+    speed(0.01){}
+
+
 #endif
