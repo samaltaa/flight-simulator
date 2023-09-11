@@ -31,3 +31,15 @@
 #ifdef AERIALVEHICLE_H_
 #define AERIALVEHICLE_H_
 #include "geometry.h"
+
+class Vehicle {
+    Point position;
+    Vector forward, up, right;
+    double speed;
+public:
+    Vehicle(Point initialPosition = Point(0, 0, 0));
+    Point getPosition() {return position;}
+    void fly() {position += speed * forward;}
+    void teleport(Point newPosition) {position = newPosition;}
+}
+#endif
