@@ -58,4 +58,18 @@ inline Vehicle::Vehicle(Point initialPostion):
     speed(0.01){}
 
 
+inline void Vehicle::pitch(double angle) {
+  forward = unit(forward * cos(angle) + up * sin(angle));
+  up = right.cross(forward);
+}
+
+inline void Vehicle::roll(double angle) {
+  right = unit(right * cos(angle) + up * sin(angle));
+  up = right.cross(forward);
+}
+
+inline void Vehicle::yaw(double angle) {
+  right = unit(right * cos(angle) + forward * sin(angle));
+  forward = up.cross(right);
+}
 #endif
