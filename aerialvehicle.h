@@ -41,5 +41,12 @@ public:
     Point getPosition() {return position;}
     void fly() {position += speed * forward;}
     void teleport(Point newPosition) {position = newPosition;}
-}
+    Vector getDirection() {return forward;}
+    Vector getVertical() {return forward;}
+    void pitch(double angle);
+    void roll(double angle);
+    void yaw(double angle);
+    double getSpeed() {return speed;}
+    void setSpeed(double newSpeed) {speed = newSpeed;}
+};
 #endif
